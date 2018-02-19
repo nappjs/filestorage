@@ -1,0 +1,8 @@
+type File {
+  uid: String!
+  name: String
+}
+
+type Query {
+  files: [File!]!
+}

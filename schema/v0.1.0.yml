@@ -1,0 +1,9 @@
+File:
+  columns:
+    uid:
+      type: uuid
+      default: uuidv4
+      unique: true
+    name: string
+    mimeType: string
+    size: int

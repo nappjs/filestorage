@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "file-storage": "^2.0.1",
+    "nappjs": "^0.5.5",
+    "nappjs-api": "^0.2.2",
+    "nappjs-core-data": "^0.2.5",
+    "nappjs-graphql-api": "^0.3.5"
+  },
+  "scripts": {
+    "start": "nappjs start",
+    "start-local":
+      "FILESTORAGE_URL=file://`pwd`/local-data PORT=3000 DATABASE_URL=sqlite://`pwd`/test.db npm start"
+  }
+}
