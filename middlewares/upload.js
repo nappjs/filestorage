@@ -14,14 +14,14 @@ class UploadService extends NappJSService {
         await storage.saveStream(req, file.uid);
         await req.context.save();
         let data = file.getValues();
-        data.url = `${HOST_URL}/files/${file.uid}`;
+        data.url = `${HOST_URL}/${file.uid}`;
         res.send(data);
       } catch (err) {
         next(err);
       }
     });
 
-    api.app.get("/files/:uid", async (req, res, next) => {
+    api.app.get("/:uid", async (req, res, next) => {
       try {
         let file = await req.context.getObject("File", {
           where: { uid: req.params.uid }
