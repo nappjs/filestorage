@@ -43,7 +43,7 @@ class UploadService extends NappJSService {
             let disposition = req.query.download ? 'attachment' : 'inline';
             res.set(
               'Content-Disposition',
-              `${disposition}; filename="${file.name}"`
+              `${disposition}; filename="${encodeURIComponent(file.name)}"`
             );
           }
 
