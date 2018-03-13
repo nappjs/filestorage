@@ -20,7 +20,9 @@ class UploadService extends NappJSService {
         next(err);
       }
     });
-
+    api.app.get('/files/:uid', (req, res, next) => {
+      res.redirect(`../${req.params.uid}`);
+    });
     api.app.get('/:uid', async (req, res, next) => {
       try {
         let file = await req.context.getObject('File', {
