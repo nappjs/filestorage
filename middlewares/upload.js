@@ -36,6 +36,17 @@ class UploadService extends NappJSService {
             res.set('Content-Type', file.mimeType);
           }
 
+          if (file.size) {
+            res.set('Content-Length', file.size);
+          }
+          if (file.name) {
+            let disposition = req.query.download ? 'attachment' : 'inline';
+            res.set(
+              'Content-Disposition',
+              `${disposition}; filename="${file.name}"`
+            );
+          }
+
           let stream = await storage.getStream(file.uid);
           stream.pipe(res);
         }
